@@ -9,9 +9,24 @@
 
 
 // HEADER STYLE 
+#header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px;
+}
 
 
 // MAIN STYLE 
+#main {
+    padding: 50px;
+    background-color: #D48F38;
+
+    .single-card {
+        background-color: #D48F38;
+        height: 250px;
+    }
+}
 
 
 // FOOTER STYLE 

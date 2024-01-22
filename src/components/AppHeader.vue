@@ -10,12 +10,14 @@
 
 <template>
 
-  <div>
+  <div id="header">
+    <div>
     LOGO
+    </div>
+    <h2>
+    Yu-Gi-Oh
+    </h2>
   </div>
-  <h1>
-    Titolo
-  </h1>
   
 </template>
 

@@ -4,11 +4,12 @@
   import AppMain from "./components/AppMain.vue"
   import AppFooter from "./components/AppFooter.vue"
   import axios from 'axios';
+  import { store } from './store.js';
 
   export default {
     data() {
       return {
-
+        store
       }
     },
     components: {
@@ -16,11 +17,13 @@
       AppMain,
       AppFooter
     },
-    created() {
-      axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0')
-      .then((response)=> {
-        console.log(response)
-      })
+    mounted() {
+      axios
+        .get(this.store.baseUrl)
+        .then((response)=> {
+          this.store.cards = response.data.results;
+          console.log(this.store.cards)
+        })
     }
   }
 </script>
@@ -28,11 +31,11 @@
 <template>
 
   <AppHeader />
+
   <AppMain />
+
   <AppFooter />
 
-  
-  
 </template>
 
 <style lang="scss">
