@@ -15,11 +15,11 @@ export default {
 
   <div class="single-card">
     <div>
-      <img :src="card.card_images[0].image_url" :alt="card.name">Foto
+      <img :src="card.card_images[0].image_url" :alt="card.name">
     </div>
-    <h5>
+    <h6 class="text-white text-uppercase">
       {{ card.name }}
-    </h5>
+    </h6>
     <div>
       {{ card.type }}
     </div>
