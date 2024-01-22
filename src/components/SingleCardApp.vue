@@ -15,7 +15,7 @@ export default {
 
   <div class="single-card">
     <div>
-      <img :src="card.image" :alt="card.name">Foto
+      <img :src="card.card_images[0].image_url" :alt="card.name">Foto
     </div>
     <h5>
       {{ card.name }}

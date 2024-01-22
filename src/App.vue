@@ -21,7 +21,8 @@
       axios
         .get(this.store.baseUrl)
         .then((response)=> {
-          this.store.cards = response.data.results;
+          console.log('api response: ', response);
+          this.store.cards = response.data.data;
           console.log(this.store.cards)
         })
     }

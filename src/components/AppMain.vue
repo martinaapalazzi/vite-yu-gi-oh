@@ -10,7 +10,7 @@
       }
     },
     components: {
-      SingleCard
+      SingleCard, 
     }
   }
 </script>
@@ -25,7 +25,7 @@
     </div>
     <div class="cards-album bg-white">
       <div class="p-2 bg-black text-white">
-        Found X cards 
+        {{ store.cards.length }} 
       </div>
       <div class="cards-container row p-5">
         <div class="single-card col-12 col-sm-6 col-md-3 mb-3 text-center"
