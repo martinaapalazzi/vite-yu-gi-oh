@@ -10,6 +10,12 @@
 
 <template>
 
+  <div>
+    LOGO
+  </div>
+  <h1>
+    Titolo
+  </h1>
   
 </template>
 

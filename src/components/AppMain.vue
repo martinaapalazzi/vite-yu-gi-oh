@@ -14,6 +14,13 @@
 
 <template>
 
+  <h3>
+    Options
+  </h3>
+  <div>
+    Cards
+  </div>
+
   
 </template>
 
