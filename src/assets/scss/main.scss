@@ -1,0 +1,198 @@
+@use "partials/reset.scss" as *;
+@use "partials/variables.scss" as *;
+@use "partials/mixins.scss" as *;
+
+// GENERAL
+
+
+// HEADER STYLE 
+
+#header {
+
+    .header-container {
+        display: $displayFlex;
+        justify-content: $JustifyContentSpaceAround;
+        align-items: $AlignItemsCenter;
+
+        .logo-container {
+            width: 80px;
+            padding: 10px;
+        }
+    
+        ul {
+            list-style-type: none;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            display: $displayFlex;
+            gap: 15px;
+            li {
+                
+                a {
+                    color: black;
+                    text-decoration: none;
+                    font-size: 13px;
+                }
+                a:hover {
+                    color: #0082F9;
+                    font-size: bold;
+                }
+            }
+        }
+        
+    }
+}
+
+// MAIN STYLE 
+
+#main {
+
+    .content-container {
+        background-color: black;
+        color: white;
+
+        .jumbotron {
+            height: 350px;
+            overflow: hidden;
+        }
+
+        .current-series {
+
+            margin: 0px 50px;
+
+            > span {
+                padding: 8px 10px;
+                background-color: #0082F9;
+                color: white;
+            }
+
+            .series-container {
+                display: $displayFlex;
+                flex-wrap: wrap;
+                margin-top: 20px;
+
+                .card {
+                    width: calc((100% / 6) - 60px);
+                    margin: 30px;
+
+                    .img-card {
+                        height: 200px;
+                        overflow: hidden;
+                        margin-bottom: 15px;
+                    }
+                }
+
+                button {
+                    border: none;
+                    cursor: pointer;
+                    padding: 8px 10px;
+                    background-color: #0082F9;
+                    color: white;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+
+    .second-container {
+        display: $displayFlex;
+        justify-content: $JustifyContentSpaceAround;
+        align-items: $AlignItemsCenter;
+        background-color: #0082f9;
+        padding: 50px;
+
+        .row {
+            display: $displayFlex;
+            justify-content: $JustifyContentSpaceAround;
+            align-items: $AlignItemsCenter;
+            gap: 15px;
+
+            img {
+                width: 40px;
+                height: 50px;
+            }
+
+            a {
+                font-size: 14px;
+                text-decoration: none;
+                color: white;
+                padding: 18px 15px;
+                transition: all .1s ease-in-out;
+
+                &:hover {
+                    background-color: #303030d4;
+                }
+            }
+        }
+    }
+}
+
+// FOOTER STYLE 
+
+#footer {
+
+    // TOP- FOOTER STYLE 
+    .top-footer {
+        display: $displayFlex;
+        align-items: $AlignItemsCenter;
+        gap: 50px;
+        height: 300px;
+        color: white;
+        background-image: url('./src/assets/img/footer-bg.jpg');
+
+        > div {
+            margin-left: 100px;
+        }
+
+        a {
+            font-size: 14px;
+            text-decoration: none;
+            color: rgb(167, 167, 167);
+
+            &:hover {
+                color: #7fc1ff;
+            }
+        }
+
+        .special-logo {
+            width: 300px;
+            margin-left: 200px;
+        }
+    }
+
+    // BOTTOM- FOOTER STYLE 
+    .bottom-footer {
+        display: $displayFlex;
+        justify-content: $JustifyContentSpaceAround;
+        background-color: #303030;
+        padding: 40px;
+
+        button {
+            background-color: transparent;
+            border: 3px #0082f9 solid;
+            color: white;
+            padding: 10px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+            &:hover {
+                background-color: #0082f9;
+            }
+        }
+
+        .right-side-footer {
+            display: $displayFlex;
+            justify-content: $JustifyContentSpaceAround;
+            align-items: $AlignItemsCenter;
+            gap: 20px;
+
+            h3 {
+                color: #0082F9;
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            }
+            .apps-container {
+                display: $displayFlex;
+                justify-content: $JustifyContentSpaceAround;
+                align-items: $AlignItemsCenter;
+                gap: 10px;
+            }
+        }
+    }
+}
