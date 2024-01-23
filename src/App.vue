@@ -17,15 +17,26 @@
       AppMain,
       AppFooter
     },
+    methods: {
+      getResponse: function (){
+        axios.get(this.store.baseUrl, {
+            params: {
+              archetype: this.searchArchetype
+            }
+          })
+          .then((response) => {
+            console.log('api response: ', response);
+            this.store.cards = response.data.data;
+            console.log(this.store.cards);
+          })
+          .catch((error) => {
+            this.store.cards = [];
+          })
+      }
+    },
     mounted() {
-      axios
-        .get(this.store.baseUrl)
-        .then((response)=> {
-          console.log('api response: ', response);
-          this.store.cards = response.data.data;
-          console.log(this.store.cards)
-        })
-    }
+      this.getResponse()
+    },
   }
 </script>
 
@@ -33,7 +44,7 @@
 
   <AppHeader />
 
-  <AppMain />
+  <AppMain @performSearch="getResponse()" />
 
   <AppFooter />
 

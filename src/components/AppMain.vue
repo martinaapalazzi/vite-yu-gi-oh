@@ -1,5 +1,6 @@
 <script>
 
+  import axios from 'axios';
   import SingleCard from './SingleCardApp.vue';
   import { store } from '../store.js';
 
@@ -11,6 +12,8 @@
     },
     components: {
       SingleCard, 
+    },
+    methods: {
     }
   }
 </script>
@@ -18,17 +21,23 @@
 <template>
 
   <div id="main">
-    <div class="dropdown">
-      <a class="btn dropdown-toggle rounded w-25 mb-4 text-start bg-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Alien
-      </a>
-    </div>
+    <form class="dropdown" @submit.prevent="$emit('performSearch')">
+      <select v-model="store.searchArchetype" class="rounded p-2 w-25 mb-4 text-start bg-white" name="" id="">
+        <option value="Select archetype"
+                v-for="(element, index) in archetypes"> {{ element.archetype.archetype_name }} </option>
+        <option value="Alien"> Alien </option>
+        <option value="Archfiend"> Archfiend </option>
+        <option value="Noble Knight"> Noble Knight </option>
+        <option value="Infernoble Arms"> Infernoble Arms </option>
+        <option value="Melodious"> Melodious </option>
+      </select>
+    </form>
     <div class="cards-album bg-white">
       <div class="p-2 bg-black text-white">
         Found {{ store.cards.length }} cards
       </div>
       <div class="cards-container row p-5">
-        <div class="single-card col-12 col-sm-6 col-md-3 mb-3 text-center"
+        <div class="single-card col-12 col-sm-6 col-md-3  mb-3 text-center"
              v-for="(card, index) in store.cards"
              :key="index">
              <SingleCard :card="card" />
