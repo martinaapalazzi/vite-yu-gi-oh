@@ -14,6 +14,14 @@
       SingleCard, 
     },
     methods: {
+      filteredArchetypes: function() {
+        axios
+          .get(this.store.baseUrl + '&archetype=' + this.store.searchArchetype)
+          .then((response)=> {
+            console.log('api response: ', response);
+            this.store.cards = response.data.data;
+          })
+      }
     }
   }
 </script>
@@ -21,15 +29,14 @@
 <template>
 
   <div id="main">
-    <form class="dropdown" @submit.prevent="$emit('performSearch')">
-      <select v-model="store.searchArchetype" class="rounded p-2 w-25 mb-4 text-start bg-white" name="" id="">
-        <option value="Select archetype"
-                v-for="(element, index) in archetypes"> {{ element.archetype.archetype_name }} </option>
-        <option value="Alien"> Alien </option>
-        <option value="Archfiend"> Archfiend </option>
-        <option value="Noble Knight"> Noble Knight </option>
-        <option value="Infernoble Arms"> Infernoble Arms </option>
-        <option value="Melodious"> Melodious </option>
+    <form class="dropdown">
+      <select @change="filteredArchetypes" v-model="store.searchArchetype" class="rounded p-2 w-25 mb-4 text-start bg-white" name="" id="">
+        <option value="Select archetype">
+          Select archetype
+        </option>
+        <option v-for="(archetype, index) in store.archetypes" :key="index" :value="archetype.archetype_name">
+          {{ archetype.archetype_name }}
+        </option>
       </select>
     </form>
     <div class="cards-album bg-white">
@@ -44,7 +51,6 @@
         </div> 
       </div>
     </div>
-
   </div>
 
   

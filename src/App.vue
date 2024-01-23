@@ -18,24 +18,20 @@
       AppFooter
     },
     methods: {
-      getResponse: function (){
-        axios.get(this.store.baseUrl, {
-            params: {
-              archetype: this.searchArchetype
-            }
-          })
-          .then((response) => {
-            console.log('api response: ', response);
-            this.store.cards = response.data.data;
-            console.log(this.store.cards);
-          })
-          .catch((error) => {
-            this.store.cards = [];
-          })
-      }
     },
     mounted() {
-      this.getResponse()
+      axios
+        .get(this.store.baseUrl)
+        .then((response)=> {
+          console.log('api response: ', response);
+          this.store.cards = response.data.data;
+        }),
+      axios
+        .get(this.store.archetypesUrl)
+        .then((response)=> {
+          console.log('api archetype response: ', response);
+          this.store.archetypes = response.data;
+        })
     },
   }
 </script>
@@ -44,7 +40,7 @@
 
   <AppHeader />
 
-  <AppMain @performSearch="getResponse()" />
+  <AppMain />
 
   <AppFooter />
 
